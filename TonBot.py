@@ -1,6 +1,5 @@
 from telegram import Update
-from telegram.ext import Updater, filters, ContextTypes
-from telegram.ext import MessageHandler, CommandHandler, Application
+from telegram.ext import filters, ContextTypes, MessageHandler, CommandHandler, Application
 from config import TOKEN
 from command import *
 
@@ -8,9 +7,8 @@ from command import *
 def handle_response(text:str) -> str:
     return text 
 
-async def handle_message(update:Update ,context:ContextTypes.DEFAULT_TYPE):
+async def handle_message(update:Update,context:ContextTypes.DEFAULT_TYPE):
     
-    message_type : str  = update.message.chat.type
     text : str = update.message.text
     
     response:str = handle_response(text)
